@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.11.1",
-    "express3-handlebars": "^0.5.2",
     "multer": "^0.1.7",
-    "mailparser": "^0.4.8"
+    "mailparser": "^0.4.8",
+    "ejs": "^2.2.4"
   }
 }

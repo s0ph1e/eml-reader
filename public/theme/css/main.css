@@ -12,11 +12,10 @@ html, body {
 }
 
 body {
-  background-color: #f2f2f2;
     font-family: 'EB Garamond', serif;
     font-weight: 300;
     font-size: 16px;
-    color: #555;
+    color: #f2f2f2;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -83,14 +82,8 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/header-bg.jpg) no-repeat center top;
-	text-align:center;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 700px;
-	width: 100%;
-    height: 100%;
-	
+    background: url(../img/header-bg.jpg) no-repeat center center fixed;
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -100,6 +93,13 @@ a:after {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
+    overflow: auto;
+
+	text-align:center;
+	min-height: 700px;
+	width: 100%;
+    height: 100%;
 }
 
 #headerwrap h1 {
@@ -115,10 +115,6 @@ a:after {
 	font-weight: 100;
     font-family: 'EB Garamond', serif;
     font-style: oblique;
-}
-
-#headerwrap h4 {
-    color: white;
 }
 
 #headerwrap .logo {
@@ -322,6 +318,23 @@ a:after {
 
 .dragging {
     opacity: 0.5;
+}
+
+.drag-and-drop-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+#view-eml {
+    display: none;
+    padding-top: 20px;
+}
+.eml-iframe {
+    width: 1000px;
+    height: 1000px;
+    margin: 10px;
+    border: 0;
 }
 
 

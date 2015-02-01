@@ -1,31 +1,37 @@
 $(function() {
-	$(document).on('click', '.open-file', function(e) {
+	var fileInput = '#file';
+	var openFileDialogBtn = '.open-file';
+	var dropzone = '.dropzone';
+	var iframe = '.eml-iframe';
+	var downloadPage = '#download-eml';
+	var viewPage = '#view-eml';
+
+	$(document).on('click', openFileDialogBtn, function(e) {
 		e.preventDefault();
-		$('#file').trigger('click');
+		$(fileInput).trigger('click');
 	});
 
-	$(document).on('change', '#file', function(e) {
-		sendFile($("#file")[0].files[0]);
+	$(document).on('change', fileInput, function(e) {
+		sendFile($(fileInput)[0].files[0]);
 	});
 
-	$(document).on('dragover', '.dropzone', function(e) {
+	$(document).on('dragover', dropzone, function(e) {
 		console.log('dragover');
 		e.preventDefault();
 		e.stopPropagation();
 		$(this).addClass('dragging');
 	});
 
-	$(document).on('dragleave', '.dropzone', function(e) {
+	$(document).on('dragleave', dropzone, function(e) {
 		console.log('dragleave');
 		e.preventDefault();
 		e.stopPropagation();
 		$(this).removeClass('dragging');
 	});
 
-	$(document).on('drop', '.dropzone', function(e) {
+	$(document).on('drop', dropzone, function(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		alert("Dropped!");
 
 		if (e.originalEvent.dataTransfer) {
 			if (e.originalEvent.dataTransfer.files.length) {
@@ -39,7 +45,7 @@ $(function() {
 
 	function sendFile(file) {
 		var form = new FormData();
-		form.append("file", file);
+		form.append('file', file);
 
 		$.ajax({
 			url: '/read',
@@ -47,8 +53,13 @@ $(function() {
 			processData: false,
 			contentType: false,
 			type: 'POST',
-			success: function(data){
-				alert(data);
+			success: function (data) {
+				$(dropzone).removeClass('dragging');
+				$(downloadPage+':visible').slideUp(function(){
+					$(viewPage).fadeIn();
+				});
+				var doc = $(iframe)[0].contentWindow.document;
+				$(doc).find('body').html(data.html || data.text);
 			}
 		});
 	}

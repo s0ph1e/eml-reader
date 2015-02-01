@@ -28,7 +28,7 @@
 	<!-- ========== HEADER SECTION ========== -->
 	<div id="headerwrap" class="dropzone">
         <div class="container">
-            <div class="row">
+            <div class="row" id="download-eml">
                 <h1>EML Reader</h1>
                 <br>
                 <br>
@@ -36,11 +36,14 @@
                 <button class="btn btn-default open-file">Choose file</button>
                 <br>
                 <br>
-                <h4>or drag and drop here</h4>
-                <br>
+                <p class="drag-and-drop-label">or drag and drop here</p>
+            </div>
 
-                <div class="col-lg-6 col-lg-offset-3">
-                </div>
+            <div class="row" id="view-eml">
+                <button class="btn btn-default open-file">Choose file</button>
+                <span class="drag-and-drop-label">&nbsp;&nbsp;or drag and drop here</span>
+                <br>
+                <iframe class="eml-iframe"></iframe>
             </div>
         </div><!-- /container -->
 	</div><!-- /headerwrap -->
