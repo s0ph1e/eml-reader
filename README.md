@@ -8,5 +8,5 @@
 ## Install
 
 - `npm install`
-- `node app.js`
+- `npm start`
 - server will be started on [localhost:3000](http://localhost:3000)
