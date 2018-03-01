@@ -1,8 +1,10 @@
+const path = require('path');
+
 module.exports = {
-    entry: './public/js/app.js',
+    entry: './public/src/app.js',
     output: {
-        path: __dirname + '/public/',
-        filename: 'app.dist.js'
+        path: path.resolve(__dirname, 'public/dist'),
+        filename: 'app.js'
     },
     resolve: {
         alias: {

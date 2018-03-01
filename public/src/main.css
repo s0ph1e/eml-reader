@@ -73,7 +73,7 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-    background: url(../img/header-bg.jpg) no-repeat center center fixed;
+    background: url(header-bg.jpg) no-repeat center center fixed;
 
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
