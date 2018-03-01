@@ -5,14 +5,20 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.2.4",
     "express": "^4.11.1",
-    "multer": "^0.1.7",
+    "jquery": "^3.3.1",
     "mailparser": "^0.4.8",
-    "ejs": "^2.2.4"
+    "multer": "^0.1.7",
+    "save-file": "^1.2.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
   }
 }

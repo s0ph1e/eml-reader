@@ -1,3 +1,7 @@
+var $ = require('jquery');
+require('bootstrap');
+const downloadFile = require('save-file');
+
 $(function() {
 	var fileInput = '#file';
 	var openFileDialogBtn = '.open-file';
@@ -5,6 +9,9 @@ $(function() {
 	var iframe = '.eml-iframe';
 	var downloadPage = '#download-eml';
 	var viewPage = '#view-eml';
+	var details = '.eml-details';
+	var headersContent = '.eml-details__content-headers';
+	var attachmentsContent = '.eml-details__content-attachments';
 
 	$(document).on('click', openFileDialogBtn, function(e) {
 		e.preventDefault();
@@ -60,7 +67,46 @@ $(function() {
 				});
 				var doc = $(iframe)[0].contentWindow.document;
 				$(doc).find('body').html(data.html || data.text);
+				showDetails({headers: data.headers, attachments: data.attachments})
 			}
 		});
+	}
+
+	function showDetails(data) {
+		var headers = data.headers;
+		var attachments = data.attachments;
+
+		var headersToDisplay = ['subject', 'from', 'to', 'date'];
+		var headersElements = [];
+		headersToDisplay.forEach(function (headerKey) {
+			if (headers[headerKey]) {
+				var el = document.createElement('div');
+				var key = document.createElement('b');
+				key.appendChild(document.createTextNode(headerKey + ': '));
+				var value = document.createElement('span');
+				value.appendChild(document.createTextNode( headers[headerKey]));
+
+				el.append(key, value);
+				headersElements.push(el);
+			}
+		});
+        $(headersContent).html('').append(headersElements);
+
+		if (attachments && attachments.length > 0) {
+			var attachmentsElements = [];
+			attachments.forEach(function (attachment) {
+				var el = document.createElement('button');
+				el.appendChild(document.createTextNode('download ' + attachment.fileName));
+				el.addEventListener( 'click', function() {
+					downloadFile(attachment.content.data, attachment.fileName);
+				});
+				attachmentsElements.push(el);
+			});
+			$(attachmentsContent).html('').append(attachmentsElements);
+		} else {
+			$(attachmentsContent).html('No attachments');
+		}
+
+		$(details).show();
 	}
 });
