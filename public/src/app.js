@@ -76,7 +76,7 @@ $(function() {
 		var headers = data.headers;
 		var attachments = data.attachments;
 
-		var headersToDisplay = ['subject', 'from', 'to', 'date'];
+		var headersToDisplay = ['subject', 'from', 'to', 'cc', 'date'];
 		var headersElements = [];
 		headersToDisplay.forEach(function (headerKey) {
 			if (headers[headerKey]) {
