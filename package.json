@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node app.js",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "author": "",
   "license": "MIT",
