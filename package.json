@@ -1,14 +1,15 @@
 {
   "name": "eml-reader",
   "version": "0.0.0",
-  "description": "",
+  "private": true,
+  "description": "Render content of email source",
   "main": "app.js",
   "scripts": {
     "start": "npm run build && node app.js",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\""
   },
-  "author": "",
+  "author": "Sophia Antipenko <sophia@antipenko.pp.ua>",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.7",
