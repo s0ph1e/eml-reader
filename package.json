@@ -20,6 +20,6 @@
     "multer": "^0.1.7",
     "save-file": "^1.2.0",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9"
+    "webpack-cli": "^3.1.2"
   }
 }
