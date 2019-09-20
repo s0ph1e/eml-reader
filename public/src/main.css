@@ -335,4 +335,8 @@ a:after {
 	color: #1a1a1a;
 }
 
-
+#eml_error_header {
+ 	font-weight:300;
+       	font-size: 18px;
+       	color: red;
+}
