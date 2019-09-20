@@ -81,17 +81,25 @@ $(function() {
 		var headers = data.headers;
 		var attachments = data.attachments;
 
-		var headersToDisplay = {'subject':__('subject'), 'from':__('from'), 'to':__('to'), 'cc':__('cc'), 'date':__('date')};
+		var headersToDisplay = {'subject':__('subject'), 'from':__('from'), 'to':__('to'), 'cc':__('cc'), 'date':__('date'),
+					'eml_error':__('This is not a valid eml-file. Please upload a new one!'};
 		var headersElements = [];
 		for(var headerKey in headersToDisplay) {
 			if (headers[headerKey]) {
-				var el = document.createElement('div');
-				var key = document.createElement('b');
-				key.appendChild(document.createTextNode(headersToDisplay[headerKey] + ': '));
-				var value = document.createElement('span');
-				value.appendChild(document.createTextNode( headers[headerKey]));
+                               	if (headerKey == 'eml_error') {
+                                	var el = document.createElement('div');
+                                       	el.setAttribute('id', 'eml_error_header');
+                                       	el.appendChild(document.createTextNode(headersToDisplay[headerKey]));
+                               	} else {
+                                       	var el = document.createElement('div');
+                                       	var key = document.createElement('b');
+                                       	key.appendChild(document.createTextNode(headersToDisplay[headerKey] + ': '));
+                                       	var value = document.createElement('span');
+                                       	value.appendChild(document.createTextNode(headers[headerKey]));
 
-				el.append(key, value);
+                                       	el.append(key, value);
+                               	}
+
 				headersElements.push(el);
 			}
 		};
