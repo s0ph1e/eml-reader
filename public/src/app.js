@@ -81,7 +81,7 @@ $(function() {
 		var headers = data.headers;
 		var attachments = data.attachments;
 
-		var headersToDisplay = {'subject':__('subject'), 'from':__('from'), 'to':__('to'), 'cc':__('cc'), 'date':__('date'),
+		var headersToDisplay = {'subject':__('subject: '), 'from':__('from: '), 'to':__('to: '), 'cc':__('cc: '), 'date':__('date: '),
 					'eml_error':__('This is not a valid eml-file. Please upload a new one!'};
 		var headersElements = [];
 		for(var headerKey in headersToDisplay) {
@@ -93,7 +93,7 @@ $(function() {
                                	} else {
                                        	var el = document.createElement('div');
                                        	var key = document.createElement('b');
-                                       	key.appendChild(document.createTextNode(headersToDisplay[headerKey] + ': '));
+                                       	key.appendChild(document.createTextNode(headersToDisplay[headerKey]));
                                        	var value = document.createElement('span');
                                        	value.appendChild(document.createTextNode(headers[headerKey]));
 
@@ -109,7 +109,7 @@ $(function() {
 			var attachmentsElements = [];
 			attachments.forEach(function (attachment) {
 				var el = document.createElement('button');
-				el.appendChild(document.createTextNode(__('download') + ' ' + attachment.fileName));
+				el.appendChild(document.createTextNode(__('download ') + attachment.fileName));
 				el.addEventListener( 'click', function() {
 					downloadFile(attachment.content.data, attachment.fileName);
 				});
