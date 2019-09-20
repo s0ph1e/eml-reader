@@ -14,7 +14,6 @@
   </head>
 
   <body>
-
     <div id="headerwrap" class="dropzone">
         <div class="container">
             <div class="row" id="download-eml">
@@ -61,7 +60,15 @@
                 <iframe class="eml-iframe"></iframe>
             </div>
         </div>
-	</div>
-    <script src="/dist/app.js"></script>
-</body>
+    </div>
+    <script>
+        var lang = navigator.language.includes('-') ? navigator.language.split('-')[0] : navigator.language;
+
+        if (['de'].indexOf(lang) >= 0) {
+            document.write('<script type="text/javascript" src="/dist/app-' + lang + '.js"><\/script>');
+        } else {
+            document.write('<script type="text/javascript" src="/dist/app-en.js"><\/script>');
+        }
+    </script>
+  </body>
 </html>
