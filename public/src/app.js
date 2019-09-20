@@ -82,7 +82,7 @@ $(function() {
 		var attachments = data.attachments;
 
 		var headersToDisplay = {'subject':__('subject: '), 'from':__('from: '), 'to':__('to: '), 'cc':__('cc: '), 'date':__('date: '),
-					'eml_error':__('This is not a valid eml-file. Please upload a new one!'};
+					'eml_error':__('This is not a valid eml-file. Please upload a new one!')};
 		var headersElements = [];
 		for(var headerKey in headersToDisplay) {
 			if (headers[headerKey]) {
