@@ -4,11 +4,11 @@
     "Headers": "Kopfzeilen",
     "Attachments": "Anhänge",
     "No attachments": "keine Anhänge",
-    "subject": "Betreff",
-    "from": "Von",
-    "to": "An",
-    "cc": "CC",
-    "date": "Datum",
-    "download": "Herunterladen:",
+    "subject: ": "Betreff",
+    "from: ": "Von",
+    "to: ": "An",
+    "cc: ": "CC",
+    "date: ": "Datum",
+    "download ": "Herunterladen:",
     "This is not a valid eml-file. Please upload a new one!": "Das ist keine gültige eml-Datei! Bitte versuchen Sie es mit einer neuen Datei."
 }
