@@ -18,7 +18,6 @@ $(function() {
         $('#headingAttachments h4 a').html(__('Attachments'));
         $('#headingHeaders h4 a').html(__('Headers'));
 
-	
 	$(document).on('click', openFileDialogBtn, function(e) {
 		e.preventDefault();
 		$(fileInput).trigger('click');
@@ -72,7 +71,7 @@ $(function() {
 					$(viewPage).fadeIn();
 				});
 				var doc = $(iframe)[0].contentWindow.document;
-				$(doc).find('body').html(data.html || data.text);
+				$(doc).find('body').html(data.html || '<div style="font-family: courier;">'+data.text.replace(/\r?\n/g, '<br />')+'</div>');
 				showDetails({headers: data.headers, attachments: data.attachments})
 			}
 		});
