@@ -13,6 +13,12 @@ $(function() {
 	var headersContent = '.eml-details__content-headers';
 	var attachmentsContent = '.eml-details__content-attachments';
 
+	$('button.open-file').html(__('Choose file'));
+        $('.drag-and-drop-label').html(__('or drag and drop here'));
+        $('#headingAttachments h4 a').html(__('Attachments'));
+        $('#headingHeaders h4 a').html(__('Headers'));
+
+	
 	$(document).on('click', openFileDialogBtn, function(e) {
 		e.preventDefault();
 		$(fileInput).trigger('click');
@@ -76,27 +82,27 @@ $(function() {
 		var headers = data.headers;
 		var attachments = data.attachments;
 
-		var headersToDisplay = ['subject', 'from', 'to', 'cc', 'date'];
+		var headersToDisplay = {'subject':__('subject'), 'from':__('from'), 'to':__('to'), 'cc':__('cc'), 'date':__('date')};
 		var headersElements = [];
-		headersToDisplay.forEach(function (headerKey) {
+		for(var headerKey in headersToDisplay) {
 			if (headers[headerKey]) {
 				var el = document.createElement('div');
 				var key = document.createElement('b');
-				key.appendChild(document.createTextNode(headerKey + ': '));
+				key.appendChild(document.createTextNode(headersToDisplay[headerKey] + ': '));
 				var value = document.createElement('span');
 				value.appendChild(document.createTextNode( headers[headerKey]));
 
 				el.append(key, value);
 				headersElements.push(el);
 			}
-		});
-        $(headersContent).html('').append(headersElements);
+		};
+        	$(headersContent).html('').append(headersElements);
 
 		if (attachments && attachments.length > 0) {
 			var attachmentsElements = [];
 			attachments.forEach(function (attachment) {
 				var el = document.createElement('button');
-				el.appendChild(document.createTextNode('download ' + attachment.fileName));
+				el.appendChild(document.createTextNode(__('download') + ' ' + attachment.fileName));
 				el.addEventListener( 'click', function() {
 					downloadFile(attachment.content.data, attachment.fileName);
 				});
@@ -104,7 +110,7 @@ $(function() {
 			});
 			$(attachmentsContent).html('').append(attachmentsElements);
 		} else {
-			$(attachmentsContent).html('No attachments');
+			$(attachmentsContent).html(__('No attachments'));
 		}
 
 		$(details).show();
