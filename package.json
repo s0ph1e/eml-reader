@@ -12,14 +12,15 @@
   "author": "Sophia Antipenko <sophia@antipenko.pp.ua>",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "ejs": "^2.2.4",
-    "express": "^4.11.1",
-    "jquery": "^3.3.1",
-    "mailparser": "^0.4.8",
-    "multer": "^0.1.7",
-    "save-file": "^1.2.0",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^3.1.2"
+    "bootstrap": "^3.4.1",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "i18n-webpack-plugin": "^1.0.0",
+    "jquery": "^3.4.1",
+    "mailparser": "^0.6.2",
+    "multer": "^0.1.8",
+    "save-file": "^2.3.1",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   }
 }
